@@ -64,8 +64,8 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-3">
+                        <div class="form-group row" style="margin-top:15px;">
+                            <div class="col-md-6 offset-md-4">
                                 <a href="{{route('login.github')}}" class="btn btn-dark btn-block">Login with Github</a>
                             </div>
                         </div>   

@@ -24,3 +24,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //Github
 Route::get('/login/github', [App\Http\Controllers\Auth\LoginController::class, 'redirectToGithub'])->name('login.github');
 Route::get('/login/github/callback', [App\Http\Controllers\Auth\LoginController::class, 'handleGithubCallback']);
+
+Route::get('/plans', 'PlanController@index');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/plan/{plan}', 'PlanController@show');
+    Route::get('/braintree/token', 'BraintreeTokenController@token');
+    Route::post('/subscribe', 'SubscriptionController@store');
+    Route::get('/subscriptions', 'SubscriptionController@index');
+    Route::get('/subscription/cancel/{subscription}', 'SubscriptionController@cancel');
+});
